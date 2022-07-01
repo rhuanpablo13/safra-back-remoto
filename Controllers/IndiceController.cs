@@ -24,7 +24,7 @@ namespace calculadora_api.Controllers
         // [Authorize(Roles = "admin")]
         public ActionResult<IEnumerable<Indice>> GetIndiceItemsParameter([FromQuery] string indice, [FromQuery] int pageSize = 10, [FromQuery] int pageNumber = 0, [FromQuery] int draw = 1, [FromQuery] bool getAll = false)
         {
-            IQueryable<Indice> _indiceListByParameter = _context.IndiceItems.Where(item => item.indice == indice).OrderByDescending(x => x.data);
+            IQueryable<Indice> _indiceListByParameter = _context.Indice.Where(item => item.indice == indice).OrderByDescending(x => x.data);
             int recordsTotal = _indiceListByParameter.Count();
 
             if (getAll)
@@ -48,7 +48,7 @@ namespace calculadora_api.Controllers
         // [Authorize(Roles = "admin")]
         public ActionResult<Indice> GetIndiceItemsByDate([FromQuery] string indice, [FromQuery] DateTime data)
         {
-            return _context.IndiceItems
+            return _context.Indice
                         .Where(item => item.indice == indice)
                         .Where(item => item.data == data)
                         .OrderByDescending(x => x.data)
@@ -60,7 +60,7 @@ namespace calculadora_api.Controllers
         [HttpGet("{id}")]
         public ActionResult<Indice> IndiceItem(int id)
         {
-            var indiceItem = _context.IndiceItems.Find(id);
+            var indiceItem = _context.Indice.Find(id);
 
             if (indiceItem == null)
             {
@@ -76,7 +76,7 @@ namespace calculadora_api.Controllers
         {
             foreach (var indice in indiceList)
             {
-                _context.IndiceItems.Add(indice);
+                _context.Indice.Add(indice);
                 _context.SaveChanges();
             }
             return NoContent();
@@ -99,14 +99,14 @@ namespace calculadora_api.Controllers
         [HttpDelete("{id}")]
         public ActionResult<Indice> DeleteIndiceItem(int id)
         {
-            var indiceItem = _context.IndiceItems.Find(id);
+            var indiceItem = _context.Indice.Find(id);
 
             if (indiceItem == null)
             {
                 return NotFound();
             }
 
-            _context.IndiceItems.Remove(indiceItem);
+            _context.Indice.Remove(indiceItem);
             _context.SaveChanges();
 
             return indiceItem;

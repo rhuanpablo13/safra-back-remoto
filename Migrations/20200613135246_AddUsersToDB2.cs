@@ -8,7 +8,7 @@ namespace calculadora_api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ChequeEmpresarialItems",
+                name: "ChequeEmpresarial",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -34,7 +34,7 @@ namespace calculadora_api.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "IndiceItems",
+                name: "Indice",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -49,7 +49,7 @@ namespace calculadora_api.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ParceladoPreItems",
+                name: "ParceladoPre",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -79,7 +79,7 @@ namespace calculadora_api.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserItems",
+                name: "User",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -99,16 +99,16 @@ namespace calculadora_api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ChequeEmpresarialItems");
+                name: "ChequeEmpresarial");
 
             migrationBuilder.DropTable(
-                name: "IndiceItems");
+                name: "Indice");
 
             migrationBuilder.DropTable(
-                name: "ParceladoPreItems");
+                name: "ParceladoPre");
 
             migrationBuilder.DropTable(
-                name: "UserItems");
+                name: "User");
         }
     }
 }

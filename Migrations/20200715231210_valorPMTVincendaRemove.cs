@@ -8,14 +8,14 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "valorPMTVincenda",
-                table: "ParceladoPreItems");
+                table: "ParceladoPre");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
                 name: "valorPMTVincenda",
-                table: "ParceladoPreItems",
+                table: "ParceladoPre",
                 type: "nvarchar(max)",
                 nullable: true);
         }

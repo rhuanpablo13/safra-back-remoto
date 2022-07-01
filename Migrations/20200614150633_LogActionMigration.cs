@@ -8,7 +8,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AddColumn<string>(
                 name: "acao",
-                table: "LogItems",
+                table: "Log",
                 nullable: true);
         }
 
@@ -16,7 +16,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "acao",
-                table: "LogItems");
+                table: "Log");
         }
     }
 }

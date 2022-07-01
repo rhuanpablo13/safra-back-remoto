@@ -8,7 +8,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AlterColumn<float>(
                 name: "valor",
-                table: "IndiceItems",
+                table: "Indice",
                 nullable: false,
                 oldClrType: typeof(float),
                 oldType: "real");
@@ -18,7 +18,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AlterColumn<float>(
                 name: "valor",
-                table: "IndiceItems",
+                table: "Indice",
                 type: "real",
                 nullable: false,
                 oldClrType: typeof(float));

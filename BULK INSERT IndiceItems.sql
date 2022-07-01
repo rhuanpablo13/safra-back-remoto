@@ -1,4 +1,4 @@
-BULK INSERT IndiceItems
+BULK INSERT Indice
 FROM '../INPC.csv'
 WITH (DATA_SOURCE = 'inpc2',
 FIRSTROW

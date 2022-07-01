@@ -8,7 +8,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AddColumn<string>(
                 name: "infoParaAmortizacao",
-                table: "ParceladoPreItems",
+                table: "ParceladoPre",
                 nullable: true);
         }
 
@@ -16,7 +16,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "infoParaAmortizacao",
-                table: "ParceladoPreItems");
+                table: "ParceladoPre");
         }
     }
 }

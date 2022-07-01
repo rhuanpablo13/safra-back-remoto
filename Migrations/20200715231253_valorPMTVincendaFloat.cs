@@ -8,7 +8,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AddColumn<float>(
                 name: "valorPMTVincenda",
-                table: "ParceladoPreItems",
+                table: "ParceladoPre",
                 nullable: false,
                 defaultValue: 0f);
         }
@@ -17,7 +17,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "valorPMTVincenda",
-                table: "ParceladoPreItems");
+                table: "ParceladoPre");
         }
     }
 }

@@ -72,7 +72,7 @@ namespace calculadora_api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ChequeEmpresarialItems");
+                    b.ToTable("ChequeEmpresarial");
                 });
 
             modelBuilder.Entity("calculadora_api.Models.Indice", b =>
@@ -93,7 +93,7 @@ namespace calculadora_api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("IndiceItems");
+                    b.ToTable("Indice");
                 });
 
             modelBuilder.Entity("calculadora_api.Models.Log", b =>
@@ -126,7 +126,7 @@ namespace calculadora_api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LogItems");
+                    b.ToTable("Log");
                 });
 
             modelBuilder.Entity("calculadora_api.Models.ParceladoPre", b =>
@@ -192,7 +192,7 @@ namespace calculadora_api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ParceladoPreItems");
+                    b.ToTable("ParceladoPre");
                 });
 
             modelBuilder.Entity("calculadora_api.Models.User", b =>
@@ -219,7 +219,7 @@ namespace calculadora_api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserItems");
+                    b.ToTable("User");
                 });
 #pragma warning restore 612, 618
         }

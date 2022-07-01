@@ -9,7 +9,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AlterColumn<string>(
                 name: "data",
-                table: "IndiceItems",
+                table: "Indice",
                 nullable: true,
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2");
@@ -19,7 +19,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AlterColumn<DateTime>(
                 name: "data",
-                table: "IndiceItems",
+                table: "Indice",
                 type: "datetime2",
                 nullable: false,
                 oldClrType: typeof(string),

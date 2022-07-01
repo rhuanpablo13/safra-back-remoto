@@ -11,6 +11,8 @@ using Newtonsoft.Json.Converters;
 using Microsoft.EntityFrameworkCore;
 using calculadora_api.Models;
 
+using System;
+
 namespace calculadora_api
 {
     public class Startup
@@ -30,24 +32,24 @@ namespace calculadora_api
                .AllowAnyHeader();
             }));
 
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(x =>
-            {
-                x.RequireHttpsMetadata = false;
-                x.SaveToken = true;
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
-            });
+            // var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            // services.AddAuthentication(x =>
+            // {
+            //     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            // })
+            // .AddJwtBearer(x =>
+            // {
+            //     x.RequireHttpsMetadata = false;
+            //     x.SaveToken = true;
+            //     x.TokenValidationParameters = new TokenValidationParameters
+            //     {
+            //         ValidateIssuerSigningKey = true,
+            //         IssuerSigningKey = new SymmetricSecurityKey(key),
+            //         ValidateIssuer = false,
+            //         ValidateAudience = false
+            //     };
+            // });
 
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
@@ -56,8 +58,7 @@ namespace calculadora_api
                 });
 
             services.AddDbContext<UserContext>
-                (opt => opt.UseSqlServer(Configuration["Data:UserAPIConnection:ConnectionString"]));
-
+                (opt => opt.UseSqlServer("Server=localhost,1433;Database=master;User Id=safra;Password=C41cul4d0ra"));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

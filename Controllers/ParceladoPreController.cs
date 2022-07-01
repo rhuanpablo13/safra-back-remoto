@@ -22,14 +22,14 @@ namespace calculadora_api.Controllers
         // [Authorize(Roles = "admin")]
         public ActionResult<IEnumerable<ParceladoPre>> GetParceladoPreItems()
         {
-            return _context.ParceladoPreItems;
+            return _context.ParceladoPre;
         }
 
         //GET:      api/users/n
         [HttpGet("{id}")]
         public ActionResult<ParceladoPre> ParceladoPreItem(int id)
         {
-            var parceladoPreItem = _context.ParceladoPreItems.Find(id);
+            var parceladoPreItem = _context.ParceladoPre.Find(id);
 
             if (parceladoPreItem == null)
             {
@@ -45,7 +45,7 @@ namespace calculadora_api.Controllers
         {
             foreach (var parceladoPre in parceladoPreList)
             {
-                _context.ParceladoPreItems.Add(parceladoPre);
+                _context.ParceladoPre.Add(parceladoPre);
                 _context.SaveChanges();
             }
             return NoContent();
@@ -68,14 +68,14 @@ namespace calculadora_api.Controllers
         [HttpDelete("{id}")]
         public ActionResult<ParceladoPre> DeleteParceladoPreItem(int id)
         {
-            var parceladoPreItem = _context.ParceladoPreItems.Find(id);
+            var parceladoPreItem = _context.ParceladoPre.Find(id);
 
             if (parceladoPreItem == null)
             {
                 return NotFound();
             }
 
-            _context.ParceladoPreItems.Remove(parceladoPreItem);
+            _context.ParceladoPre.Remove(parceladoPreItem);
             _context.SaveChanges();
 
             return parceladoPreItem;

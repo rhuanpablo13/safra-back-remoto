@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using calculadora_api.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using System;
 
 namespace calculadora_api.Controllers
 {
@@ -14,6 +15,8 @@ namespace calculadora_api.Controllers
 
         public ChequeEmpresarialController(UserContext context)
         {
+            Console.WriteLine("Entrei aqui");
+            Console.WriteLine(context.ToString());
             _context = context;
         }
 
@@ -22,14 +25,14 @@ namespace calculadora_api.Controllers
         // [Authorize(Roles = "admin")]
         public ActionResult<IEnumerable<ChequeEmpresarial>> GetChequeEmpresarialItems()
         {
-            return _context.ChequeEmpresarialItems;
+            return _context.ChequeEmpresarial;
         }
 
         //GET:      api/users/n
         [HttpGet("{id}")]
         public ActionResult<ChequeEmpresarial> ChequeEmpresarialItem(int id)
         {
-            var chequeempresarialItem = _context.ChequeEmpresarialItems.Find(id);
+            var chequeempresarialItem = _context.ChequeEmpresarial.Find(id);
 
             if (chequeempresarialItem == null)
             {
@@ -45,7 +48,7 @@ namespace calculadora_api.Controllers
         {
             foreach (var chequeEmpresarial in chequeEmpresarialList)
             {
-                _context.ChequeEmpresarialItems.Add(chequeEmpresarial);
+                _context.ChequeEmpresarial.Add(chequeEmpresarial);
                 _context.SaveChanges();
             }
             return NoContent();
@@ -68,14 +71,14 @@ namespace calculadora_api.Controllers
         [HttpDelete("{id}")]
         public ActionResult<ChequeEmpresarial> DeleteChequeEmpresarialItem(int id)
         {
-            var chequeempresarialItem = _context.ChequeEmpresarialItems.Find(id);
+            var chequeempresarialItem = _context.ChequeEmpresarial.Find(id);
 
             if (chequeempresarialItem == null)
             {
                 return NotFound();
             }
 
-            _context.ChequeEmpresarialItems.Remove(chequeempresarialItem);
+            _context.ChequeEmpresarial.Remove(chequeempresarialItem);
             _context.SaveChanges();
 
             return chequeempresarialItem;

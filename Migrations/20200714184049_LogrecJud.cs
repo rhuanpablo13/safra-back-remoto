@@ -8,7 +8,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AddColumn<bool>(
                 name: "recuperacaoJudicial",
-                table: "LogItems",
+                table: "Log",
                 nullable: false,
                 defaultValue: false);
         }
@@ -17,7 +17,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "recuperacaoJudicial",
-                table: "LogItems");
+                table: "Log");
         }
     }
 }

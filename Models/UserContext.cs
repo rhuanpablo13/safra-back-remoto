@@ -9,10 +9,10 @@ namespace calculadora_api.Models
 
         }
 
-        public DbSet<User> UserItems { get; set; }
-        public DbSet<ChequeEmpresarial> ChequeEmpresarialItems { get; set; }
-        public DbSet<ParceladoPre> ParceladoPreItems { get; set; }
-        public DbSet<Indice> IndiceItems { get; set; }
-        public DbSet<Log> LogItems { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<ChequeEmpresarial> ChequeEmpresarial { get; set; }
+        public DbSet<ParceladoPre> ParceladoPre { get; set; }
+        public DbSet<Indice> Indice { get; set; }
+        public DbSet<Log> Log { get; set; }
     }
 }

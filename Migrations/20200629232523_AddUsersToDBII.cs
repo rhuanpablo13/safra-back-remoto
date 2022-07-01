@@ -8,12 +8,12 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AddColumn<string>(
                 name: "tipoParcela",
-                table: "ParceladoPreItems",
+                table: "ParceladoPre",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "modulo",
-                table: "LogItems",
+                table: "Log",
                 nullable: true);
         }
 
@@ -21,11 +21,11 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "tipoParcela",
-                table: "ParceladoPreItems");
+                table: "ParceladoPre");
 
             migrationBuilder.DropColumn(
                 name: "modulo",
-                table: "LogItems");
+                table: "Log");
         }
     }
 }

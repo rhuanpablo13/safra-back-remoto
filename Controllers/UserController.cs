@@ -22,14 +22,14 @@ namespace calculadora_api.Controllers
         // [Authorize(Roles = "admin")]
         public ActionResult<IEnumerable<User>> GetUserItems()
         {
-            return _context.UserItems;
+            return _context.User;
         }
 
         //GET:      api/users/n
         [HttpGet("{id}")]
         public ActionResult<User> GetUserItem(int id)
         {
-            var userItem = _context.UserItems.Find(id);
+            var userItem = _context.User.Find(id);
 
             if (userItem == null)
             {
@@ -43,7 +43,7 @@ namespace calculadora_api.Controllers
         [HttpPost]
         public ActionResult<User> PostUserItem(User user)
         {
-            _context.UserItems.Add(user);
+            _context.User.Add(user);
             _context.SaveChanges();
 
             return CreatedAtAction("GetUserItem", new User { Id = user.Id }, user);
@@ -68,14 +68,14 @@ namespace calculadora_api.Controllers
         [HttpDelete("{id}")]
         public ActionResult<User> DeleteUserItem(int id)
         {
-            var userItem = _context.UserItems.Find(id);
+            var userItem = _context.User.Find(id);
 
             if (userItem == null)
             {
                 return NotFound();
             }
 
-            _context.UserItems.Remove(userItem);
+            _context.User.Remove(userItem);
             _context.SaveChanges();
 
             return userItem;

@@ -9,7 +9,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AlterColumn<DateTime>(
                 name: "data",
-                table: "LogItems",
+                table: "Log",
                 nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)",
@@ -20,7 +20,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AlterColumn<string>(
                 name: "data",
-                table: "LogItems",
+                table: "Log",
                 type: "nvarchar(max)",
                 nullable: true,
                 oldClrType: typeof(DateTime));

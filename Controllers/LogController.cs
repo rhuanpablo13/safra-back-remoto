@@ -23,7 +23,7 @@ namespace calculadora_api.Controllers
         // [Authorize(Roles = "admin")]
         public ActionResult<IEnumerable<Log>> GetLogItems([FromQuery] string pasta, [FromQuery] string contrato, [FromQuery] string tipoContrato, [FromQuery] int pageSize = 10, [FromQuery] int pageNumber = 0, [FromQuery] int draw = 1, [FromQuery] bool getAll = false, [FromQuery] bool recuperacaoJudicial = false)
         {
-            IQueryable<Log> _logListByParameter = _context.LogItems
+            IQueryable<Log> _logListByParameter = _context.Log
                                     .Where(item => item.pasta == pasta && item.contrato == contrato && item.tipoContrato == tipoContrato && item.recuperacaoJudicial == recuperacaoJudicial)
                                     .OrderByDescending(x => x.data);
 
@@ -49,7 +49,7 @@ namespace calculadora_api.Controllers
         [HttpGet("{id}")]
         public ActionResult<Log> LogItem(int id)
         {
-            var logItem = _context.LogItems.Find(id);
+            var logItem = _context.Log.Find(id);
 
             if (logItem == null)
             {
@@ -65,7 +65,7 @@ namespace calculadora_api.Controllers
         {
             foreach (var log in logList)
             {
-                _context.LogItems.Add(log);
+                _context.Log.Add(log);
                 _context.SaveChanges();
             }
             return NoContent();
@@ -83,7 +83,7 @@ namespace calculadora_api.Controllers
         [FromQuery] bool recuperacaoJudicial = false)
         {
             if(dtParameters.Order != null) {
-            IQueryable<Log> _logListByParameter = _context.LogItems;
+            IQueryable<Log> _logListByParameter = _context.Log;
             var searchBy = dtParameters.Search?.Value;
             var orderCriteria = string.Empty;
             var orderAscendingDirection = true;
@@ -124,7 +124,7 @@ namespace calculadora_api.Controllers
 
             // now just get the count of items (without the skip and take) - eg how many could be returned with filtering
             var filteredResultsCount = data2.Count();
-            var totalResultsCount = _context.LogItems.Count();
+            var totalResultsCount = _context.Log.Count();
 
             if (string.IsNullOrEmpty(searchBy))
             {
@@ -176,14 +176,14 @@ namespace calculadora_api.Controllers
         [HttpDelete("{id}")]
         public ActionResult<Log> DeleteLogItem(int id)
         {
-            var logItem = _context.LogItems.Find(id);
+            var logItem = _context.Log.Find(id);
 
             if (logItem == null)
             {
                 return NotFound();
             }
 
-            _context.LogItems.Remove(logItem);
+            _context.Log.Remove(logItem);
             _context.SaveChanges();
 
             return logItem;

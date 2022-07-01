@@ -8,13 +8,13 @@ namespace calculadora_api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "IndiceItems");
+                name: "Indice");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "IndiceItems",
+                name: "Indice",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)

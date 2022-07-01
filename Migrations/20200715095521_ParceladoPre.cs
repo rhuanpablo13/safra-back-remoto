@@ -8,7 +8,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AlterColumn<string>(
                 name: "nparcelas",
-                table: "ParceladoPreItems",
+                table: "ParceladoPre",
                 nullable: true,
                 oldClrType: typeof(float),
                 oldType: "real");
@@ -18,7 +18,7 @@ namespace calculadora_api.Migrations
         {
             migrationBuilder.AlterColumn<float>(
                 name: "nparcelas",
-                table: "ParceladoPreItems",
+                table: "ParceladoPre",
                 type: "real",
                 nullable: false,
                 oldClrType: typeof(string),
